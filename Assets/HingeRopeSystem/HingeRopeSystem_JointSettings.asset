@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83937375b2c41a1bebbe7a4edb55eed, type: 3}
+  m_Name: HingeRopeSystem_JointSettings
+  m_EditorClassIdentifier: 
+  axis: {x: 0, y: 1, z: 0}
+  swingAxis: {x: 1, y: 0, z: 1}
+  twistLimitSpringDamper: 1
+  twistLimitSpringSpring: 1
+  lowTwistLimitLimit: -45
+  lowTwistLimitContactDistance: 5
+  highTwistLimitLimit: 45
+  highTwistLimitContactDistance: 5
+  swingLimitSpringDamper: 1
+  swingLimitSpringSpring: 1
+  swing1LimitLimit: 140
+  swing1LimitContactDistance: 5
+  swing2LimitLimit: 140
+  swing2LimitContactDistance: 5
