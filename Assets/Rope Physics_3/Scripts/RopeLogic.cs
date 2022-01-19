@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -27,46 +28,61 @@ namespace RopePhysics_3
         private int _numberOfkinematic;
         private void FixedUpdate()
         {
+            HandleSpawnLogic();
+        }
 
+        private List<int> _kinematicIndexes = new List<int>();
+        private void HandleSpawnLogic()
+        {
             _numberOfkinematic = 0;
-            for (int i = 0; i < _listOfNods.Count - 1; i++)
-            {
-                if ( _listOfNods[i].IsKinematic)
-                {
-                    _numberOfkinematic++;
-                    if (_numberOfkinematic > 2)
-                    {
-                        Debug.Log($"<color=purple>HAS TWO KINEMATIC</color>");
 
-                        break;
-                    }
+            _kinematicIndexes.Clear();
+
+            for (var i = 0; i < _listOfNods.Count; i++)
+            {
+                if (_listOfNods[i].IsKinematic)
+                {
+                    _kinematicIndexes.Add(i);
                 }
-                
-                
             }
-            
-            if (_numberOfkinematic < 2)
+
+            if (_kinematicIndexes.Count < 2)
             {
                 return;
             }
-           
+            //Пробегаемся по всем нодам, добавляем индексы кинематик нодов в массив
+            //По завершению цикла, проверяем если в массиве больше 2 кинематиков то идем далье по методу
+            //Запускаем колличество циклов равное колличество кинематиков - 1
+            //Пробегаемся по нодам между кинематиками используя найденный индексы кинематиков
 
             int currentOpenrationCount = 0;
-            for (int i = 0; i < _listOfNods.Count - 1; i++)
+            
+            for (int i = _kinematicIndexes[0]; i < _kinematicIndexes[_kinematicIndexes.Count - 1]; i++)
             {
-                if (Vector3.Distance(_listOfNods[i].transform.position, _listOfNods[i + 1].transform.position) > _newNodeAddingDistance)
+                if (Vector3.Distance(_listOfNods[i].transform.position, _listOfNods[i + 1].transform.position) >
+                    _newNodeAddingDistance)
                 {
-                    SpawnNewNode(i+1);
+                    SpawnNewNode(i + 1);
                     currentOpenrationCount++;
                     if (_maxOperationCount <= currentOpenrationCount)
                     {
-                        return; 
+                        return;
                     }
                 }
             }
         }
 
-       
+        [OnValueChanged("UpdateNodes")]
+        [SerializeField] private bool _calculateRotations;
+        
+        
+        public void UpdateNodes()
+        {
+            foreach (var VARIABLE in FindObjectsOfType<RopeNode>())
+            {
+                VARIABLE.CalculateRotations = _calculateRotations;
+            }
+        }
 
         private void SpawnNewNode(int nodeIndex)
         {
@@ -74,7 +90,9 @@ namespace RopePhysics_3
             if (Debug.isDebugBuild) Debug.Log($"<color=purple>[{Time.realtimeSinceStartup}] Spawn</color>");
 
              var node = Instantiate(_listOfNods[_listOfNods.Count - 1], this.transform);
+             
              node.GetComponent<Renderer>().material.color = Color.green;
+             
              var nodeToSpawn = _listOfNods[nodeIndex];
 
              var transform1 = nodeToSpawn.transform;

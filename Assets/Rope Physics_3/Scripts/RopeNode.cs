@@ -1,6 +1,8 @@
 using System;
 using Sirenix.Serialization;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.Serialization;
 
 
@@ -29,15 +31,20 @@ namespace RopePhysics_3
         private Vector3 _nextNodeRelativePosition;
         private Vector3 _previewNodeRelativePosition;
         private float _prevDot;
-        public bool _normalize;
-
+        [Range(0f,1f)]
+        [SerializeField] private float _drag;
+        private Quaternion _facing;
         private void Awake()
         {
             _body = GetComponent<Rigidbody>();
             _body.useGravity = false;
             // выключем гравитацию и считаем ее сами, тк физ движок постоянно аплаит ее после физ апдэйта (почему-то)
+            _facing = transform.rotation * Quaternion.Euler(new Vector3(-90,0,0));
         }
 
+        public bool CalculateRotations;
+
+        [SerializeField] private Vector3 _upDirection;
         private void FixedUpdate()
         {
             if (_body.isKinematic) return;
@@ -70,10 +77,6 @@ namespace RopePhysics_3
             if (frameDelta > deltaMagnitude) // если дельта больше расстояния, то домножаем скорость на относительное значение, что бы получить скорость для точного прирощения позиции
             {
                 targetVelocity *= deltaMagnitude / frameDelta;
-                if (_prevNode.name == "Node")
-                {
-                    Debug.Log($"TARGET VELOCITY: {targetVelocity}, DELTA MAGNITUDE: {deltaMagnitude}, FRAME DELTA: {frameDelta}");
-                }
             }
 
             
@@ -81,22 +84,37 @@ namespace RopePhysics_3
             // применяем гравитацию
             var dot =  Vector3.Dot(targetOffset, _body.velocity);
 
+            float multiplier = 1.0f - _drag * Time.fixedDeltaTime;
+            if (multiplier < 0.0f) multiplier = 0.0f;
+            
+            var targetVelocityNormalized = targetVelocity - targetVelocity.normalized * dot;
 
-            var targetVelocityNormalized = targetVelocity - targetVelocity.normalized * dot;    
+            OverrideTransform dwcqw;
+            //dwcqw.data.
             
             _body.velocity += targetVelocityNormalized; // высчитываем все противолежащие нашему направлению офсета силы, когда созванивались, я это объяснял
-            // if (_prevNode.name == "Node")
-            // {
-            //     Debug.Log($"BODY VELOCITY: {_body.velocity },TARGET VELOCITY{targetVelocity}, - {targetVelocity.normalized * dot}");
-            // }
             if (clampVelocity)
             {
                 _body.velocity = Vector3.ClampMagnitude(_body.velocity, maxVelocity); // клэмпим)
             }
-            
-            //_body.velocity.
+
+            _body.velocity *= multiplier;
             _body.angularVelocity = Vector3.zero;
         }
+
+        private void Update()
+        {
+            if (_nextNode != null && CalculateRotations)
+            {
+                var rotation = Quaternion.LookRotation((_nextNode.transform.position - transform.position).normalized,_upDirection);
+                rotation *= _facing;
+
+                transform.rotation = rotation;
+            }
+        }
+
+
+       
 
         //этот метод просто возвращает рест поинт относительно другой ноды (направление от одной к другой нормализованное, умноженное на таргет дистанс)
         private Vector3 GetTargetRelativePos(RopeNode node)
@@ -110,6 +128,8 @@ namespace RopePhysics_3
             return targetGlobalPos - position;
         }
 
+        
+        
         
         private void OnDrawGizmosSelected()
         {
@@ -130,11 +150,15 @@ namespace RopePhysics_3
             
             Gizmos.DrawSphere(transform.position + _cachedTargetOffset, .5f);
 
-            if (_prevNode.name == "Node")
-            {
-                Debug.Log($"{_cachedTargetOffset}");
-            }
             
+            Gizmos.DrawRay(transform.position, transform.up     * -10);
+
+            //mylogs Probably remove this later
+            if (Debug.isDebugBuild) Debug.Log($"<color=blue>{transform.rotation.eulerAngles}</color>");
+
+            //mylogs Probably remove this later
+            if (Debug.isDebugBuild) Debug.Log($"<color=purple>{transform.rotation}</color>");
+
         }
     }
     
