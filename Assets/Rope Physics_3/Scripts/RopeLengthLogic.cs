@@ -8,15 +8,17 @@ using UnityEngine;
 namespace RopePhysics_3
 
 {
-    public class RopeLogic : MonoBehaviour
+    public class RopeLengthLogic : MonoBehaviour
     {
 
         [SerializeField] private List<RopeNode> _listOfNods;
 
+        [SerializeField] private List<RopeNode> _addedNode = new List<RopeNode>();
         [SerializeField] private float _delayBeforeAddingNewNode;
         [SerializeField] private float _newNodeAddingDistance;
         [SerializeField] private int _maxOperationCount = 5;
 
+        [SerializeField] private int _maxNodeCount;
         [SerializeField] private bool _drawGizmos;
         public void Start()
         {
@@ -31,6 +33,7 @@ namespace RopePhysics_3
             HandleSpawnLogic();
         }
 
+        [SerializeField] private ConstraintProvider _constraintProvider;
         private List<int> _kinematicIndexes = new List<int>();
         private void HandleSpawnLogic()
         {
@@ -62,14 +65,30 @@ namespace RopePhysics_3
                 if (Vector3.Distance(_listOfNods[i].transform.position, _listOfNods[i + 1].transform.position) >
                     _newNodeAddingDistance)
                 {
+
+                    // if (_listOfNods.Count >= _maxNodeCount)
+                    // {
+                    //     ResetList();
+                    //     return;
+                    // }
+                    
                     SpawnNewNode(i + 1);
                     currentOpenrationCount++;
                     if (_maxOperationCount <= currentOpenrationCount)
                     {
+                        _constraintProvider.UpdateConstrains(_listOfNods.Select(e=>e.transform).ToList());
                         return;
                     }
                 }
             }
+            
+            _constraintProvider.UpdateConstrains(_listOfNods.Select(e=>e.transform).ToList());
+        }
+
+        private void ResetList()
+        {
+            //throw new NotImplementedException();
+            
         }
 
         [OnValueChanged("UpdateNodes")]
@@ -78,9 +97,9 @@ namespace RopePhysics_3
         
         public void UpdateNodes()
         {
-            foreach (var VARIABLE in FindObjectsOfType<RopeNode>())
+            foreach (var variable in FindObjectsOfType<RopeNode>())
             {
-                VARIABLE.CalculateRotations = _calculateRotations;
+                variable.CalculateRotations = _calculateRotations;
             }
         }
 
@@ -91,6 +110,7 @@ namespace RopePhysics_3
 
              var node = Instantiate(_listOfNods[_listOfNods.Count - 1], this.transform);
              
+             _addedNode.Add(node);
              node.GetComponent<Renderer>().material.color = Color.green;
              
              var nodeToSpawn = _listOfNods[nodeIndex];
@@ -113,6 +133,10 @@ namespace RopePhysics_3
 
         private void OnDrawGizmos()
         {
+            if (_drawGizmos == false)
+            {
+                return;
+            }
             if (_listOfNods != null && _listOfNods.Count > 0)
             { 
                 Gizmos.color = Color.blue;
