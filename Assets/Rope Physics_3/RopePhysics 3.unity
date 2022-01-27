@@ -178,8 +178,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1665962379}
   _nextNode: {fileID: 1184422194}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &578084
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -369,8 +373,12 @@ MonoBehaviour:
   _prevNode: {fileID: 556446538}
   _nextNode: {fileID: 204833048}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &18529868
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -453,8 +461,12 @@ MonoBehaviour:
   _prevNode: {fileID: 465807628}
   _nextNode: {fileID: 1007705850}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &31119810
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -646,8 +658,12 @@ MonoBehaviour:
   _prevNode: {fileID: 999378071}
   _nextNode: {fileID: 946028263}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &73555526
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -984,8 +1000,12 @@ MonoBehaviour:
   _prevNode: {fileID: 948075156}
   _nextNode: {fileID: 1665962379}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &94256496
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1174,8 +1194,12 @@ MonoBehaviour:
   _prevNode: {fileID: 204833048}
   _nextNode: {fileID: 1364317623}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &119967404
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1310,7 +1334,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133230287}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.46508315, y: -1.4939111, z: -0.697714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1772,8 +1796,12 @@ MonoBehaviour:
   _prevNode: {fileID: 18529867}
   _nextNode: {fileID: 119967403}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &204833049
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2232,8 +2260,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1307628402}
   _nextNode: {fileID: 0}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 1
-  _upDirection: {x: 1, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!33 &262212399
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2732,6 +2764,50 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &339095473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 339095474}
+  - component: {fileID: 339095475}
+  m_Layer: 0
+  m_Name: BodyCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &339095474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339095473}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.15, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1020877016}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &339095475
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339095473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 60, y: 8.96, z: 33.9}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &340788600
 GameObject:
   m_ObjectHideFlags: 0
@@ -3011,7 +3087,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360614717}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.85265255, y: -1.4891647, z: -0.69771403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3279,7 +3355,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416391526}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.23254159, y: -1.4967589, z: -0.697714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3333,7 +3409,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421875927}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.3875693, y: -1.4948604, z: -0.697714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3387,7 +3463,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428267967}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.07751391, y: -1.4986575, z: -0.697714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3563,8 +3639,12 @@ MonoBehaviour:
   _prevNode: {fileID: 767186662}
   _nextNode: {fileID: 1502396038}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &437297496
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3618,7 +3698,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442379121}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.6976248, y: -1.4910632, z: -0.697714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3842,8 +3922,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1755996155}
   _nextNode: {fileID: 31119809}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &465807629
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3897,7 +3981,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468264580}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.4996067, z: -0.697714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4434,8 +4518,12 @@ MonoBehaviour:
   _prevNode: {fileID: 813550379}
   _nextNode: {fileID: 18529867}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &556446539
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4835,8 +4923,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1502396038}
   _nextNode: {fileID: 1213238730}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &607389721
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5076,8 +5168,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1647556630}
   _nextNode: {fileID: 1261784071}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &645547277
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5378,7 +5474,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676678029}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.15502776, y: -1.4977082, z: -0.697714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5761,8 +5857,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1802277688}
   _nextNode: {fileID: 1647556630}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &730894707
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5868,7 +5968,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736731350}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.62011087, y: -1.4920126, z: -0.697714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -5951,8 +6051,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1352711949}
   _nextNode: {fileID: 1676709648}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &741048066
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6006,7 +6110,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752029627}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.0076802, y: -1.4872662, z: -0.69771403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6084,9 +6188,9 @@ MonoBehaviour:
   _listOfNods: []
   _addedNode: []
   _delayBeforeAddingNewNode: 0
-  _newNodeAddingDistance: 1.5
+  _newNodeAddingDistance: 0.3
   _maxOperationCount: 5
-  _maxNodeCount: 0
+  _maxNodeCount: 20
   _drawGizmos: 0
   _constraintProvider: {fileID: 1270389589}
   _calculateRotations: 1
@@ -6144,8 +6248,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1711254390}
   _nextNode: {fileID: 437297495}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &767186663
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6228,8 +6336,12 @@ MonoBehaviour:
   _prevNode: {fileID: 900948210}
   _nextNode: {fileID: 1802277688}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &770395008
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6364,7 +6476,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802022501}
-  m_LocalRotation: {x: -0.0074192705, y: 0.000045434448, z: -0.0061227633, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.9301665, y: -1.4882154, z: -0.69771403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6529,7 +6641,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807069730}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.31005546, y: -1.4958097, z: -0.697714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6694,8 +6806,12 @@ MonoBehaviour:
   _prevNode: {fileID: 946028263}
   _nextNode: {fileID: 556446538}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &813550380
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7190,8 +7306,12 @@ MonoBehaviour:
   _prevNode: {fileID: 978960535}
   _nextNode: {fileID: 770395007}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &900948211
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7413,8 +7533,12 @@ MonoBehaviour:
   _prevNode: {fileID: 73555525}
   _nextNode: {fileID: 813550379}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &946028264
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7498,8 +7622,12 @@ MonoBehaviour:
   _prevNode: {fileID: 0}
   _nextNode: {fileID: 94256495}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &948075157
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7794,8 +7922,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1676709648}
   _nextNode: {fileID: 900948210}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &978960536
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7849,7 +7981,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983519061}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.085194, y: -1.4863169, z: -0.69771403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -8098,8 +8230,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1184422194}
   _nextNode: {fileID: 73555525}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &999378072
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8249,8 +8385,12 @@ MonoBehaviour:
   _prevNode: {fileID: 31119809}
   _nextNode: {fileID: 0}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1007705851
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8412,12 +8552,16 @@ MonoBehaviour:
   _connectionForce: 1000
   maxVelocity: 100
   clampVelocity: 1
-  _drawGizmos: 0
+  _drawGizmos: 1
   _prevNode: {fileID: 0}
   _nextNode: {fileID: 2080157265}
-  _drag: 0.599
+  _drag: 0.68
+  _facingCorrection: {x: 0, y: -90, z: 0}
+  _bodyCollider: {fileID: 339095474}
   CalculateRotations: 1
-  _upDirection: {x: 1, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 1, y: 0, z: 0}
+  _controllBodyColliderLength: 1
 --- !u!135 &1020877014
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8455,9 +8599,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020877012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000017756818, y: -1.6166958, z: 0.6927191}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
+  m_LocalPosition: {x: -1.3952504, y: -1.4825197, z: -0.6977144}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
+  m_Children:
+  - {fileID: 339095474}
   m_Father: {fileID: 753308678}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8842,8 +8987,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1261784071}
   _nextNode: {fileID: 1755996155}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1044685495
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9549,8 +9698,12 @@ MonoBehaviour:
   _prevNode: {fileID: 578083}
   _nextNode: {fileID: 999378071}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1184422195
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9741,8 +9894,12 @@ MonoBehaviour:
   _prevNode: {fileID: 607389720}
   _nextNode: {fileID: 0}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1213238731
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10073,8 +10230,12 @@ MonoBehaviour:
   _prevNode: {fileID: 645547276}
   _nextNode: {fileID: 1044685494}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1261784072
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10329,8 +10490,12 @@ MonoBehaviour:
   _prevNode: {fileID: 0}
   _nextNode: {fileID: 262212398}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 1
-  _upDirection: {x: 1, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!33 &1307628403
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11043,8 +11208,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1841512187}
   _nextNode: {fileID: 741048065}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1352711950
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11209,8 +11378,12 @@ MonoBehaviour:
   _prevNode: {fileID: 119967403}
   _nextNode: {fileID: 1711254390}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1364317624
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11761,7 +11934,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453115156}
-  m_LocalRotation: {x: -0.0074192714, y: 0.000045404657, z: -0.0061227605, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.3177361, y: -1.483469, z: -0.6977142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -11927,6 +12100,51 @@ Transform:
   m_Father: {fileID: 1377755459}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1480055938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1480055939}
+  - component: {fileID: 1480055940}
+  m_Layer: 0
+  m_Name: BodyCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1480055939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480055938}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.15, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2080157268}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1480055940
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480055938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 20
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1484596577
 GameObject:
   m_ObjectHideFlags: 0
@@ -12089,8 +12307,12 @@ MonoBehaviour:
   _prevNode: {fileID: 437297495}
   _nextNode: {fileID: 607389720}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1502396039
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12547,8 +12769,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1679416672}
   _nextNode: {fileID: 1907941760}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1551364485
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13277,8 +13503,12 @@ MonoBehaviour:
   _prevNode: {fileID: 730894706}
   _nextNode: {fileID: 645547276}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1647556631
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13575,8 +13805,12 @@ MonoBehaviour:
   _prevNode: {fileID: 94256495}
   _nextNode: {fileID: 578083}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1665962380
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13660,7 +13894,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674789049}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.240222, y: -1.4844184, z: -0.69771403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -13797,8 +14031,12 @@ MonoBehaviour:
   _prevNode: {fileID: 741048065}
   _nextNode: {fileID: 978960535}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1676709649
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13881,8 +14119,12 @@ MonoBehaviour:
   _prevNode: {fileID: 0}
   _nextNode: {fileID: 1551364484}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1679416673
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14044,7 +14286,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699597848}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1627078, y: -1.4853677, z: -0.69771403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -14098,7 +14340,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699611203}
-  m_LocalRotation: {x: -0.0074192733, y: 0.000045404657, z: -0.006122755, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.3952504, y: -1.4825197, z: -0.6977144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -14125,7 +14367,7 @@ MonoBehaviour:
     m_OverrideRotation: {x: 0, y: 0, z: 0}
     m_PositionWeight: 1
     m_RotationWeight: 1
-    m_Space: 1
+    m_Space: 2
   m_SourceObjectsGUIToggle: 1
   m_SettingsGUIToggle: 1
 --- !u!1 &1711254388
@@ -14182,8 +14424,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1364317623}
   _nextNode: {fileID: 767186662}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1711254391
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14482,8 +14728,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1044685494}
   _nextNode: {fileID: 465807628}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1755996156
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14917,8 +15167,12 @@ MonoBehaviour:
   _prevNode: {fileID: 770395007}
   _nextNode: {fileID: 730894706}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1802277689
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15268,8 +15522,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1907941760}
   _nextNode: {fileID: 1352711949}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1841512188
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15968,8 +16226,12 @@ MonoBehaviour:
   _prevNode: {fileID: 1551364484}
   _nextNode: {fileID: 1841512187}
   _drag: 0
+  _facingCorrection: {x: 0, y: 0, z: 0}
+  _bodyCollider: {fileID: 0}
   CalculateRotations: 0
-  _upDirection: {x: 0, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: 0}
+  _controllBodyColliderLength: 0
 --- !u!135 &1907941761
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16594,7 +16856,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977741440}
-  m_LocalRotation: {x: -0.007419275, y: 0.00004540466, z: -0.0061227493, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.4727645, y: -1.4815705, z: -0.6977147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -16621,7 +16883,7 @@ MonoBehaviour:
     m_OverrideRotation: {x: 0, y: 0, z: 0}
     m_PositionWeight: 1
     m_RotationWeight: 1
-    m_Space: 1
+    m_Space: 2
   m_SourceObjectsGUIToggle: 1
   m_SettingsGUIToggle: 1
 --- !u!1 &1984800750
@@ -17076,7 +17338,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015726540}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.542597, y: -1.4929619, z: -0.697714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -17470,12 +17732,16 @@ MonoBehaviour:
   _connectionForce: 1000
   maxVelocity: 100
   clampVelocity: 1
-  _drawGizmos: 0
+  _drawGizmos: 1
   _prevNode: {fileID: 1020877013}
   _nextNode: {fileID: 0}
-  _drag: 0.599
+  _drag: 0.68
+  _facingCorrection: {x: 0, y: -90, z: 0}
+  _bodyCollider: {fileID: 1480055939}
   CalculateRotations: 1
-  _upDirection: {x: 1, y: 0, z: 0}
+  _multiplier: 0
+  _someVector: {x: 0, y: 0, z: -1}
+  _controllBodyColliderLength: 1
 --- !u!135 &2080157266
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17513,9 +17779,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080157264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000018127284, y: -1.6232008, z: 0.7699652}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
+  m_LocalPosition: {x: -1.472764, y: -1.4815705, z: -0.6977147}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
+  m_Children:
+  - {fileID: 1480055939}
   m_Father: {fileID: 753308678}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17676,7 +17943,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110367254}
-  m_LocalRotation: {x: -0.0074192695, y: 0.000045404653, z: -0.006122766, w: 0.99995375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.77513856, y: -1.490114, z: -0.69771403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

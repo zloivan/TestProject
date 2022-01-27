@@ -16,9 +16,6 @@ public class ConstraintProvider : MonoBehaviour
         {
             _overriderTransforms = GetComponentsInChildren<OverrideTransform>().ToList();
         }
-        
-        
-        
     }
 
     private void OnValidate()
@@ -59,13 +56,13 @@ public class ConstraintProvider : MonoBehaviour
             return;
         }
 
-        int index = _trackPosition.Count - 1;
+        int index = 0;
         
         for (int i = _overriderTransforms.Count - _trackPosition.Count; i < _overriderTransforms.Count; i++)
         {
             _overriderTransforms[i].transform.localPosition = _trackPosition[index].localPosition;
             _overriderTransforms[i].transform.localRotation = _trackPosition[index].localRotation;
-            index--;
+            index++;
         }
     }
 }

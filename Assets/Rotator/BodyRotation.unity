@@ -177,7 +177,7 @@ MonoBehaviour:
   _controllingVector: {x: 0, y: 0, z: 0}
   _traceBody: 1
   _tracableBody: {fileID: 769640248}
-  _quaternion: {x: 0, y: 45, z: 0}
+  _quaternion: {x: 0, y: -45, z: 0}
 --- !u!1 &1379733649
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,37 +302,37 @@ PrefabInstance:
     - target: {fileID: 3044292453882924954, guid: eb3166244e91c4630a86cde9c52b9881,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: -0.09904577
       objectReference: {fileID: 0}
     - target: {fileID: 3044292453882924954, guid: eb3166244e91c4630a86cde9c52b9881,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.36964378
       objectReference: {fileID: 0}
     - target: {fileID: 3044292453882924954, guid: eb3166244e91c4630a86cde9c52b9881,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: -0.23911765
       objectReference: {fileID: 0}
     - target: {fileID: 3044292453882924954, guid: eb3166244e91c4630a86cde9c52b9881,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.8923991
       objectReference: {fileID: 0}
     - target: {fileID: 3044292453882924954, guid: eb3166244e91c4630a86cde9c52b9881,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3044292453882924954, guid: eb3166244e91c4630a86cde9c52b9881,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 3044292453882924954, guid: eb3166244e91c4630a86cde9c52b9881,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3166244e91c4630a86cde9c52b9881, type: 3}
@@ -437,6 +437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RotatedBody (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044292453882924953, guid: eb3166244e91c4630a86cde9c52b9881,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3044292453882924954, guid: eb3166244e91c4630a86cde9c52b9881,
         type: 3}

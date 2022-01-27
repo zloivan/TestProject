@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Rotator : MonoBehaviour
@@ -9,6 +10,7 @@ public class Rotator : MonoBehaviour
     [SerializeField] private Transform _controllingBody;
     [SerializeField] private Vector3 _controllingVector;
     [SerializeField] private bool _traceBody;
+    [ShowIf("_traceBody")]
     [SerializeField] private Transform _tracableBody;
     
     [SerializeField] private Vector3 _quaternion;
@@ -28,7 +30,8 @@ public class Rotator : MonoBehaviour
         }
         
         
-        _faceing = _bodyToRotate.rotation ;
+        _faceing = Quaternion.Euler(0,0,1);
+        
         if (_quaternion != Vector3.zero)
         {
             _faceing *= Quaternion.Euler(_quaternion);

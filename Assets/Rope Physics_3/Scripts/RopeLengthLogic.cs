@@ -18,7 +18,7 @@ namespace RopePhysics_3
         [SerializeField] private float _newNodeAddingDistance;
         [SerializeField] private int _maxOperationCount = 5;
 
-        [SerializeField] private int _maxNodeCount;
+        [SerializeField] private int _maxNodeCount = 20;
         [SerializeField] private bool _drawGizmos;
         public void Start()
         {
@@ -66,12 +66,13 @@ namespace RopePhysics_3
                     _newNodeAddingDistance)
                 {
 
-                    // if (_listOfNods.Count >= _maxNodeCount)
-                    // {
-                    //     ResetList();
-                    //     return;
-                    // }
-                    
+                    if (_listOfNods.Count >= _maxNodeCount)
+                    {
+                        ResetRopeLength();
+                        return;
+                    }
+
+
                     SpawnNewNode(i + 1);
                     currentOpenrationCount++;
                     if (_maxOperationCount <= currentOpenrationCount)
@@ -85,7 +86,7 @@ namespace RopePhysics_3
             _constraintProvider.UpdateConstrains(_listOfNods.Select(e=>e.transform).ToList());
         }
 
-        private void ResetList()
+        private void ResetRopeLength()
         {
             //throw new NotImplementedException();
             
