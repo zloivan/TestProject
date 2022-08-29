@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/AudioRecorderSystem/Exaples/AudioRecorderTest.unity
-    guid: 3e17d22cf84374e25a60b426cff1872f
+    path: Assets/SystemsMechanics/HingeSystem/Rope Physics_3/RopePhysics 3.unity
+    guid: d7998e4edb13f4284825468cbbb03728
   m_configObjects: {}
